@@ -6,5 +6,5 @@ def hello():
     return "Hello!"
 
 @app.route("/czech")
-def hello():
+def pozdrav():
     return "Ahoj světě!"
