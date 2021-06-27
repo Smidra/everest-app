@@ -28,7 +28,7 @@
 
     <script>
     function addCervena() {
-        theUrl = "http://127.0.0.1:5000/cervena"
+        theUrl = "https://everesttest03.azurewebsites.net/cervena"
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
         xmlHttp.send( null );
@@ -37,7 +37,7 @@
         return xmlHttp.responseText;    
     }
     function addModra() {
-        theUrl = "http://127.0.0.1:5000/modra"
+        theUrl = "https://everesttest03.azurewebsites.net/modra"
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
         xmlHttp.send( null );
