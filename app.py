@@ -3,7 +3,7 @@ from flask import render_template
 app = Flask(__name__)
 
 app.cervena = 0
-app.modra = 1
+app.modra = 0
 
 @app.route("/")
 def index():
