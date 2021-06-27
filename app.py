@@ -10,6 +10,12 @@ def index():
     soucet = app.cervena + app.modra
     return render_template('index.html', cervena=app.cervena, modra=app.modra)
 
+@app.route("/klikadlo")
+def klikadlo():
+    soucet = app.cervena + app.modra
+    return render_template('klikadlo.html', cervena=app.cervena, modra=app.modra, progress="width: "+ str(app.cervena+app.modra) + "%")
+
+
 @app.route("/cervena")
 def addCervena():
     app.cervena += 1
