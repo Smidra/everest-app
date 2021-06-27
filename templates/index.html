@@ -8,6 +8,26 @@
     <p>Červená: {{ cervena }}</p>
     <p>Modrá: {{ modra }}</p>
     <p>Celkem máme: {{ cervena+modra }}</p>
-    
+    <button onclick="addCervena()">Cervena</button>
+    <button onclick="addModra()">Modra</button>
+
+    <script>
+    function addCervena() {
+        theUrl = "http://127.0.0.1:5000/cervena"
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+        xmlHttp.send( null );
+        location.reload();
+        return xmlHttp.responseText;    
+    }
+    function addModra() {
+        theUrl = "http://127.0.0.1:5000/modra"
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+        xmlHttp.send( null );
+        location.reload();
+        return xmlHttp.responseText;    
+    }
+    </script>
 </body>
 </html>
