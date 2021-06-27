@@ -8,7 +8,7 @@ app.modra = 1
 @app.route("/")
 def index():
     soucet = app.cervena + app.modra
-    return render_template('index.html', cervena=app.cervena, modra=app.modra)
+    return render_template('index.html', cervena=app.cervena, modra=app.modra, progress="width: "+ str(app.cervena+app.modra) + "%")
 
 @app.route("/klikadlo")
 def klikadlo():
