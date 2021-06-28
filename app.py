@@ -11,7 +11,7 @@ MAXIMUM=100
 
 @app.route("/")
 def index():
-    return render_template('index.html', r=app.r, b=app.b, g=app.g, y=app.y)
+    return render_template('index.html', r=app.r, b=app.b, g=app.g, y=app.y, maximum=MAXIMUM)
 
 @app.route("/klikadlo")
 def klikadlo():
