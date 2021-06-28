@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import request
 app = Flask(__name__)
 
 app.r = 0
@@ -47,8 +48,28 @@ def addY():
     app.y += INCREMENT
     return True
 
+# Administrace
+@app.route("/jenomrada")
+def admin():
+    return render_template('administrace.html',
+    r=app.r, b=app.b, g=app.g, y=app.y,
+    maximum=MAXIMUM,
+    prog_r=htmlify(app.r),
+    prog_b=htmlify(app.b),
+    prog_g=htmlify(app.g),
+    prog_y=htmlify(app.y))
 
-
-@app.route("/czech")
-def pozdrav():
-    return "Ahoj světě!"
+@app.route("/setpoints")
+def setPoints():    
+    pocet = request.args.get('body', '')
+    barva = request.args.get('barva', '')
+    if barva=="r":
+        app.r += int(pocet)
+    elif barva=="b":
+        app.b += int(pocet)
+    elif barva=="g":
+        app.g += int(pocet)
+    elif barva=="y":
+        app.y += int(pocet)
+    
+    return "Nastaveno " + pocet + " pro " + barva
