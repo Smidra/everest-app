@@ -35,29 +35,17 @@
                     <button type="button" class="btn btn-warning btn-lg" style="height: 100px; width: 200px;" onclick="addPoint('y')">Žlutá</button>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="col">
-                    <p class="lead">Modrá: {{ modra }} m</p>
-                </div>
-                <div class="col">
-                    <p class="lead">Modrá: {{ modra }} m</p>
-                </div>
-                <div class="col">
-                    <p class="lead">Modrá: {{ modra }} m</p>
-                </div>
-                <div class="col">
-                    <p class="lead">Modrá: {{ modra }} m</p>
-                </div>
-            </div> -->
         </div>
 
     </div>
     </main>
 
     <script>
+    // SERVER="http://127.0.0.1:5000/"
+    SERVER="https://everesttest03.azurewebsites.net/"
 
     function addPoint(color) {
-        theUrl = "https://everesttest03.azurewebsites.net/" + color
+        theUrl = SERVER + color
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
         xmlHttp.send( null );
