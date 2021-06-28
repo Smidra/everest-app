@@ -13,9 +13,11 @@
         <div class="container">
         <h1 class="mt-5">Scoreboard</h1>
 
-        <p class="lead">Červená: {{ cervena }} m</p>
-        <p class="lead">Modrá: {{ modra }} m</p>
-        <p class="lead">Celkem máme: {{ cervena+modra }} m</p>
+        <p class="lead">Červená: {{ r }} m</p>
+        <p class="lead">Modrá: {{ b }} m</p>
+        <p class="lead">Zelená: {{ g }} m</p>
+        <p class="lead">Žlutá: {{ y }} m</p>
+        <p class="lead">Celkem máme: {{ r+g+b+y }} m</p>
 
         <div class="progress" id="progress">
             <div class="progress-bar" role="progressbar" style="{{ progress }}" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>

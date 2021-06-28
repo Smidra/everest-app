@@ -2,29 +2,42 @@ from flask import Flask
 from flask import render_template
 app = Flask(__name__)
 
-app.cervena = 0
-app.modra = 0
+app.r = 0
+app.g = 0
+app.b = 0
+app.y = 0
+INCREMENT=1
+MAXIMUM=100
 
 @app.route("/")
 def index():
-    soucet = app.cervena + app.modra
-    return render_template('index.html', cervena=app.cervena, modra=app.modra, progress="width: "+ str(app.cervena+app.modra) + "%")
+    return render_template('index.html', r=app.r, b=app.b, g=app.g, y=app.y)
 
 @app.route("/klikadlo")
 def klikadlo():
-    soucet = app.cervena + app.modra
-    return render_template('klikadlo.html', cervena=app.cervena, modra=app.modra, progress="width: "+ str(app.cervena+app.modra) + "%")
+    return render_template('klikadlo.html', progress="width: "+ str(app.r+app.b+app.g+app.y) + "%", maximum=MAXIMUM)
 
+# Pridavani prichozich hodnot
+@app.route("/r")
+def addR():
+    app.r += INCREMENT
+    return True
 
-@app.route("/cervena")
-def addCervena():
-    app.cervena += 1
-    return "Cervena úspěšně +1"
+@app.route("/b")
+def addM():
+    app.b += INCREMENT
+    return True
 
-@app.route("/modra")
-def addModra():
-    app.modra += 1
-    return "Modra úspěšně +1"
+@app.route("/g")
+def addG():
+    app.g += INCREMENT
+    return True
+
+@app.route("/y")
+def addY():
+    app.y += INCREMENT
+    return True
+
 
 
 @app.route("/czech")
