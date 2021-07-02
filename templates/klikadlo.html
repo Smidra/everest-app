@@ -23,7 +23,7 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col">
-                    <button type="button" class="btn btn-danger btn-lg" style="height: 100px; width: 200px;" onclick="addPoint('r')">Červená</button>
+                    <button id="cervena" type="button" class="btn btn-danger btn-lg" style="height: 100px; width: 200px;" onclick="addPoint('r')" >Červená</button>
                 </div>
                 <div class="col">
                     <button type="button" class="btn btn-primary btn-lg" style="height: 100px; width: 200px;" onclick="addPoint('b')">Modrá</button>
@@ -41,15 +41,16 @@
     </main>
 
     <script>
+    SERVER="{{ server }}"
     // SERVER="http://127.0.0.1:5000/"
-    SERVER="https://everesttest03.azurewebsites.net/"
+    // SERVER="https://everesttest03.azurewebsites.net/"
 
     function addPoint(color) {
         theUrl = SERVER + color
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
         xmlHttp.send( null );
-        location.reload();
+        window.location.href = SERVER + "wait";
         return xmlHttp.responseText;    
     }
 

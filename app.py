@@ -9,6 +9,8 @@ app.b = 0
 app.y = 0
 INCREMENT=1
 MAXIMUM=100
+# SERVER="http://127.0.0.1:5000/"
+SERVER="https://everesttest03.azurewebsites.net/"
 
 def htmlify(cislo):
     return "width: "+ str(cislo) + "%"
@@ -25,7 +27,10 @@ def index():
 
 @app.route("/klikadlo")
 def klikadlo():
-    return render_template('klikadlo.html', progress=htmlify(app.r+app.b+app.g+app.y), maximum=MAXIMUM)
+    return render_template('klikadlo.html',
+    progress=htmlify(app.r+app.b+app.g+app.y),
+    maximum=MAXIMUM, 
+    server=SERVER)
 
 # Pridavani prichozich hodnot
 @app.route("/r")
@@ -47,6 +52,10 @@ def addG():
 def addY():
     app.y += INCREMENT
     return True
+
+@app.route("/wait")
+def waitSite():
+    return render_template('wait.html')
 
 # Administrace
 @app.route("/jenomrada")
