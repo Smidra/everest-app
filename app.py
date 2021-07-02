@@ -66,7 +66,8 @@ def admin():
     prog_r=htmlify(app.r),
     prog_b=htmlify(app.b),
     prog_g=htmlify(app.g),
-    prog_y=htmlify(app.y))
+    prog_y=htmlify(app.y),
+    server=SERVER)
 
 @app.route("/setpoints")
 def setPoints():    
