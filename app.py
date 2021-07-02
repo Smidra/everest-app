@@ -7,13 +7,13 @@ app.r = 0
 app.g = 0
 app.b = 0
 app.y = 0
-INCREMENT=1
-MAXIMUM=100
+INCREMENT=31
+MAXIMUM=3484.86
 # SERVER="http://127.0.0.1:5000/"
 SERVER="https://everesttest03.azurewebsites.net/"
 
 def htmlify(cislo):
-    return "width: "+ str(cislo) + "%"
+    return "width: "+ str(cislo/(MAXIMUM/100)) + "%"
 
 @app.route("/")
 def index():
@@ -55,7 +55,7 @@ def addY():
 
 @app.route("/wait")
 def waitSite():
-    return render_template('wait.html')
+    return render_template('wait.html', server=SERVER)
 
 # Administrace
 @app.route("/jenomrada")
