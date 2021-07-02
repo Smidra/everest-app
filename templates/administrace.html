@@ -53,7 +53,7 @@
         </div>
         <br>
         <div class="text-center">
-            <button type="button" class="btn btn-primary btn-lg text-center" style="width: 200px;" onclick="setPoints()">Odeslat</button>
+            <button type="button" class="btn btn-primary btn-lg text-center" style="width: 200px;" onclick="odeslat()">Odeslat</button>
         </div>
 
         </div>
@@ -61,14 +61,22 @@
 
     <script>
         SERVER="{{ server }}"
+
+        function odeslat(){
+            // Ziskej cervenou hodnotu a nastav
+            setPoints('r',  document.getElementById('r').value)
+            setPoints('b',  document.getElementById('b').value)
+            setPoints('g',  document.getElementById('g').value)
+            setPoints('y',  document.getElementById('y').value)
+            // reload
+            location.reload(); 
+        } 
     
-        function setPoints(color) {
-            body = 10
-            theUrl = SERVER + "setpoints?body=" + 10 +"&barva=r"
+        function setPoints(color, points) {
+            theUrl = SERVER + "setpoints?body=" + points +"&barva=" + color
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
             xmlHttp.send( null );
-            location.reload();
             return xmlHttp.responseText;    
         }
     
