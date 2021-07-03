@@ -7,8 +7,8 @@ app.r = 0
 app.g = 0
 app.b = 0
 app.y = 0
-INCREMENT=31
-MAXIMUM=3484.86
+INCREMENT=7.1
+MAXIMUM=1197
 # SERVER="http://127.0.0.1:5000/"
 SERVER="https://everesttest03.azurewebsites.net/"
 
